@@ -1,0 +1,42 @@
+<% layout('layouts/template') %>
+
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" type="text" id='name' name='campground[name]' placeholder="Name" autofocus
+                    required>
+                <div class="invalid-feedback">This is a required field.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id='description' name='campground[description]'
+                    placeholder="Description" required></textarea>
+                <div class="invalid-feedback">This is a required field.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location" required>Location</label>
+                <input class="form-control" type="text" id='location' name='campground[location]' placeholder="Location"
+                    required>
+                <div class="invalid-feedback">This is a required field.</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Add Image(s)</label>
+                <input class="form-control" type="file" id="image" name='image' multiple>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price" required>Price</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" aria-label="price" name="campground[price]"
+                        placeholder="0.00" min=0 required>
+                    <div class="invalid-feedback">Enter a number greater than or equal to 0.</div>
+                </div>
+            </div>
+            <button class="btn btn-success" class="d-inline">Submit</button>
+        </form>
+        <form class="d-inline" action="/campgrounds">
+            <button class="btn btn-light">Back</button>
+        </form>
+    </div>
