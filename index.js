@@ -50,8 +50,8 @@ app.engine('ejs', engine);
 
 const store = new MongoStore({
     url: dbUrl,
-    secret: process.env.SECRET
-
+    secret: process.env.SECRET,
+    touchAfter: 24 * 3600
 });
 
 const sessionConfig = {
@@ -62,7 +62,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        //secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60,
         maxAge: 1000 * 60 * 60
     }
